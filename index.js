@@ -94,41 +94,38 @@ class Proyect {
     // Ejercicio 5, Convertir de base 2 a 16
 
     base2_16() {
-        let $input = document.getElementById("result")
-        let numero = parseInt($input.value)
-        if (numero == 0) {
-            $input.value = `Por favor ingresar mayor a 0`
+        let input = document.getElementById("result")
+        let numero = parseInt(input.value, 2)
+        if (isNaN(numero) || numero === 0) {
+          input.value = `Por favor ingresar un número mayor a 0 en base 2`
         } else {
-            let arreglo = this.isDigitos(numero, 2)
-            let base16 = ""
-            let binario = arreglo.reverse().join('')
-            let num = parseInt(binario, 2)
-            while (num > 0) {
-                let resto = num % 16
-                if (resto >= 10) {
-                    base16 = String.fromCharCode(resto + 55) + base16
-                } else {
-                    base16 = resto.toString() + base16
-                }
-                num = parseInt(num / 16)
+          let arreglo = this.isDigitos(numero, 16)
+          let base16 = ""
+          while (arreglo.length > 0) {
+            let resto = arreglo.pop()
+            if (resto >= 10) {
+              base16 = String.fromCharCode(resto + 55) + base16
+            } else {
+              base16 = resto.toString() + base16
             }
-            $input.value = `[Base 2 = ${numero}] ==> Base 16 = ${base16}`;
+          }
+          input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 16 = ${base16}`;
         }
-    }
+      }
 
     // Ejercicio 6, Convertir de base 2 a 8
 
     base2_8() {
-        let $input = document.getElementById("result");
-        let numero = parseInt($input.value);
-        if (numero == 0) {
-          $input.value = `Por favor ingresar mayor a 0`;
+        let $input = document.getElementById("result")
+        let numero = parseInt($input.value, 2)
+        if (isNaN(numero) || numero <= 0) {
+            $input.value = `Por favor ingresar mayor a 0`
         } else {
-          let numeroBinario = numero.toString(2); // convierte el número a base 2
-          let numeroOctal = binarioToOctal(numeroBinario); // convierte el número a base 8
-          $input.value = `[Base 2 = ${numeroBinario}] ==> Base 8 = ${numeroOctal}`;
+            let arreglo = this.isDigitos(numero, 8)
+            let base8 = arreglo.reverse().join("")
+            $input.value = `[Base 2 = ${numero}] ==> Base 8 = ${base8}`
         }
-      }
+    }
 
 }
 
