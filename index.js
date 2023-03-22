@@ -15,7 +15,7 @@ class Proyect {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
         if (numero == 0) {
-            $input.value = `Porfavor ingresar mayor a 0`
+            $input.value = `Por favor ingresar mayor a 0`
         } else {
             let arreglo = this.isDigitos(numero, 2)
             let base10 = ""
@@ -32,7 +32,7 @@ class Proyect {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
         if (numero === 0) {
-            $input.value = `Porfavor ingresar mayor a 0`
+            $input.value = `Por favor ingresar mayor a 0`
         } else {
             let arreglo = this.isDigitos(numero, 16)
             let base10 = ""
@@ -54,7 +54,7 @@ class Proyect {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
         if (numero === 0) {
-            $input.value = `Porfavor ingresar mayor a 0`
+            $input.value = `Por favor ingresar mayor a 0`
         } else {
             let arreglo = this.isDigitos(numero, 8)
             let base10 = ""
@@ -79,7 +79,7 @@ class Proyect {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
         if (numero == 0) {
-            $input.value = `Porfavor ingresar mayor a 0`
+            $input.value = `Por favor ingresar mayor a 0`
         } else {
             let arreglo = this.isDigitos(numero, 10)
             let base2 = 0, limite = arreglo.length - 1
@@ -87,7 +87,7 @@ class Proyect {
                 base2 = base2 + arreglo[i] * this.isExponente(2, limite)
                 limite = limite - 1
             }
-            $input.value = `[Base 2 = ${numero}] ==> Base 2 = ${base2}`
+            $input.value = `[Base 2 = ${numero}] ==> Base 10 = ${base2}`
         }
     }
 
@@ -97,21 +97,38 @@ class Proyect {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
         if (numero == 0) {
-            $input.value = `Porfavor ingresar mayor a 0`
+            $input.value = `Por favor ingresar mayor a 0`
         } else {
-            let arreglo = this.isDigitos(numero, 16)
-            let base2 = 0, limite = arreglo.length - 1
-            for (let i = arreglo.length - 1; i >= 0; i--) {
-                let digit = arreglo[i];
-                if (digit >= 10) {
-                    base2 += String.fromCharCode(digit + 55) // Convierte el dígito en su letra hexadecimal en ascii
+            let arreglo = this.isDigitos(numero, 2)
+            let base16 = ""
+            let binario = arreglo.reverse().join('')
+            let num = parseInt(binario, 2)
+            while (num > 0) {
+                let resto = num % 16
+                if (resto >= 10) {
+                    base16 = String.fromCharCode(resto + 55) + base16
                 } else {
-                    base2 += digit.toString()
+                    base16 = resto.toString() + base16
                 }
+                num = parseInt(num / 16)
             }
-            $input.value = `[Base 16 = ${numero}] ==> Base 2 = ${base2}`;
+            $input.value = `[Base 2 = ${numero}] ==> Base 16 = ${base16}`;
         }
     }
+
+    // Ejercicio 6, Convertir de base 2 a 8
+
+    base2_8() {
+        let $input = document.getElementById("result");
+        let numero = parseInt($input.value);
+        if (numero == 0) {
+          $input.value = `Por favor ingresar mayor a 0`;
+        } else {
+          let numeroBinario = numero.toString(2); // convierte el número a base 2
+          let numeroOctal = binarioToOctal(numeroBinario); // convierte el número a base 8
+          $input.value = `[Base 2 = ${numeroBinario}] ==> Base 8 = ${numeroOctal}`;
+        }
+      }
 
 }
 
