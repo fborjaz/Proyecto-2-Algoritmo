@@ -149,7 +149,7 @@ class Proyect {
     darVuelto() {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
-        if (numero >= 100) {
+        if (numero > 100) {
             $input.value = `Por favor ingresar cantidades menores a $100`
         } else {
             let resul = this.sacarvuelto(numero)
@@ -159,7 +159,26 @@ class Proyect {
 
     // Ejercicio 9, Se ingresa un numero natural y lo convierte a numero romano
 
+    sacarromanos(numero) {
+        let unidades = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+        let decenas = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX","LXXX", "XC", "C"];
 
+        let decena = Math.floor(numero / 10);
+        let unidad = numero % 10;
+
+        return decenas[decena] + unidades[unidad];
+    }
+
+    darRomanos() {
+        let $input = document.getElementById("result")
+        let numero = parseInt($input.value)
+        if (numero > 100) {
+            $input.value = `Por favor ingresar un número menor a 100`
+        } else {
+            let resul = this.sacarromanos(numero)
+            $input.value = `[La cantidad ingresada ${numero}] a romano es ==> ${resul}`
+        }
+    }
 
 }
 
