@@ -127,6 +127,34 @@ class Proyect {
         }
     }
 
+    // Ejercicio 7, Convertir de base N a N
+
+    // Ejercicio 8, Dar el vuelto 
+
+    sacarvuelto(dolar) {
+        let vuelto = [50,20,10,5,1], dinero = [];
+        for(let c = 0; c <vuelto.length; c++){
+            let otrovuelto = vuelto[c]
+                if (dolar >= otrovuelto) {
+                    let cvuelto = Math.floor( dolar / otrovuelto )
+                    dinero.push(`$${otrovuelto} : [${cvuelto}]`);
+                    dolar = dolar % otrovuelto;
+                  }
+        }
+        return dinero
+    }
+
+    darVuelto() {
+        let $input = document.getElementById("result")
+        let numero = parseInt($input.value)
+        if(numero >= 100){
+            alert("el valor es mayor de 100, vuelva a ingresar")
+        }
+        let resul = this.sacarvuelto(numero)
+    
+        $input.value = `[La cantidad ingresada ${numero}] a vuelto es ==> ${resul}`
+    }
+
 }
 
 let Present = new Proyect()
