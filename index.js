@@ -216,6 +216,26 @@ class Proyect {
         }
     }
 
+    // Ejercicio 11, Presnetar el elemnto mayor de un arreglo
+    
+    mayoromenor(arreglo){
+        let mayor = 0
+        for(let c = 1, i = 0; c < arreglo.length; c++,i++){
+            if(arreglo[c] > arreglo[i]){
+                mayor = arreglo[c];
+            }
+        }
+        return mayor
+    }
+    
+    numeromayor(){
+        let $input = document.getElementById("result")
+        let num = $input.value
+        let arreglo = num.split(",")
+        let resultado = this.mayoromenor(arreglo)
+        $input.value = (`Los elementos son: '${arreglo}' y el elemento mayor es: ${resultado}.`);
+    }
+
 }
 
 let Present = new Proyect()
