@@ -129,6 +129,8 @@ class Proyect {
 
     // Ejercicio 7, Convertir de base N a N
 
+
+
     // Ejercicio 8, Dar el vuelto 
 
     sacarvuelto(dolar) {
@@ -148,12 +150,17 @@ class Proyect {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
         if(numero >= 100){
-            alert("el valor es mayor de 100, vuelva a ingresar")
+            $input.value = `Por favor ingresar cantidades menores a $100`
+        } else {
+            let resul = this.sacarvuelto(numero)
+            $input.value = `[La cantidad ingresada ${numero}] a vuelto es ==> ${resul}`
         }
-        let resul = this.sacarvuelto(numero)
     
-        $input.value = `[La cantidad ingresada ${numero}] a vuelto es ==> ${resul}`
     }
+
+    // Ejercicio 9, Se ingresa un numero natural y lo convierte a numero romano
+
+
 
 }
 
