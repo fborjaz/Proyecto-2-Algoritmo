@@ -97,21 +97,21 @@ class Proyect {
         let input = document.getElementById("result")
         let numero = parseInt(input.value, 2)
         if (isNaN(numero) || numero === 0) {
-          input.value = `Por favor ingresar un número mayor a 0 en base 2`
+            input.value = `Por favor ingresar un número mayor a 0 en base 2`
         } else {
-          let arreglo = this.isDigitos(numero, 16)
-          let base16 = ""
-          while (arreglo.length > 0) {
-            let resto = arreglo.pop()
-            if (resto >= 10) {
-              base16 = String.fromCharCode(resto + 55) + base16
-            } else {
-              base16 = resto.toString() + base16
+            let arreglo = this.isDigitos(numero, 16)
+            let base16 = ""
+            while (arreglo.length > 0) {
+                let resto = arreglo.pop()
+                if (resto >= 10) {
+                    base16 = String.fromCharCode(resto + 55) + base16
+                } else {
+                    base16 = resto.toString() + base16
+                }
             }
-          }
-          input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 16 = ${base16}`;
+            input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 16 = ${base16}`;
         }
-      }
+    }
 
     // Ejercicio 6, Convertir de base 2 a 8
 
@@ -134,14 +134,14 @@ class Proyect {
     // Ejercicio 8, Dar el vuelto 
 
     sacarvuelto(dolar) {
-        let vuelto = [50,20,10,5,1], dinero = [];
-        for(let c = 0; c <vuelto.length; c++){
+        let vuelto = [50, 20, 10, 5, 1], dinero = [];
+        for (let c = 0; c < vuelto.length; c++) {
             let otrovuelto = vuelto[c]
-                if (dolar >= otrovuelto) {
-                    let cvuelto = Math.floor( dolar / otrovuelto )
-                    dinero.push(`$${otrovuelto} : [${cvuelto}]`);
-                    dolar = dolar % otrovuelto;
-                  }
+            if (dolar >= otrovuelto) {
+                let cvuelto = Math.floor(dolar / otrovuelto)
+                dinero.push(`$${otrovuelto} : [${cvuelto}]`);
+                dolar = dolar % otrovuelto;
+            }
         }
         return dinero
     }
@@ -149,13 +149,12 @@ class Proyect {
     darVuelto() {
         let $input = document.getElementById("result")
         let numero = parseInt($input.value)
-        if(numero >= 100){
+        if (numero >= 100) {
             $input.value = `Por favor ingresar cantidades menores a $100`
         } else {
             let resul = this.sacarvuelto(numero)
             $input.value = `[La cantidad ingresada ${numero}] a vuelto es ==> ${resul}`
         }
-    
     }
 
     // Ejercicio 9, Se ingresa un numero natural y lo convierte a numero romano
