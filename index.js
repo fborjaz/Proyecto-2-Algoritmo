@@ -218,22 +218,44 @@ class Proyect {
 
     // Ejercicio 11, Presnetar el elemnto mayor de un arreglo
     
-    mayoromenor(arreglo){
-        let mayor = 0
-        for(let c = 1, i = 0; c < arreglo.length; c++,i++){
-            if(arreglo[c] > arreglo[i]){
-                mayor = arreglo[c];
+    obtenerNumero(arreglo, tipo) {
+        let resultado = arreglo[0];
+        for (let c = 1; c < arreglo.length; c++) {
+            if (tipo === "mayor" && arreglo[c] > resultado) {
+                resultado = arreglo[c];
+            } else if (tipo === "menor" && arreglo[c] < resultado) {
+                resultado = arreglo[c];
+            } else if (tipo === "igual" && arreglo[c] === resultado) {
+                resultado = arreglo[c];
             }
         }
-        return mayor
+        return resultado;
     }
-    
-    numeromayor(){
+
+    numeromayor() {
         let $input = document.getElementById("result")
         let num = $input.value
-        let arreglo = num.split(",")
-        let resultado = this.mayoromenor(arreglo)
-        $input.value = (`Los elementos son: '${arreglo}' y el elemento mayor es: ${resultado}.`);
+        if (!num.trim()) {
+            $input.value = `No se ingreso ningun arreglo`
+        } else {
+            let arreglo = num.split(",")
+            let mayor = this.obtenerNumero(arreglo, "mayor")
+            $input.value = (`De la siguiente serie '${arreglo}' el número mayor es: ${mayor}.`);
+        }
+    }
+
+    // Ejercicio 12, Presnetar el elemnto menor de un arreglo
+
+    numeromenor() {
+        let $input = document.getElementById("result")
+        let num = $input.value
+        if (!num.trim()) {
+            $input.value = `No se ingreso ningun arreglo`
+        } else {
+            let arreglo = num.split(",")
+            let menor = this.obtenerNumero(arreglo, "menor")
+            $input.value = (`De la siguiente serie '${arreglo}' el número menor es: ${menor}.`);
+        }
     }
 
 }
