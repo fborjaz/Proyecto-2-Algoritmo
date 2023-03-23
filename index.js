@@ -161,7 +161,7 @@ class Proyect {
 
     sacarromanos(numero) {
         let unidades = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
-        let decenas = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX","LXXX", "XC", "C"];
+        let decenas = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C"];
 
         let decena = Math.floor(numero / 10);
         let unidad = numero % 10;
@@ -177,6 +177,42 @@ class Proyect {
         } else {
             let resul = this.sacarromanos(numero)
             $input.value = `[La cantidad ingresada ${numero}] a romano es ==> ${resul}`
+        }
+    }
+
+    // Ejercicio 10, Ingresar frase que se guarde en una cadena y si se encuentra la subcadena dentro de la cadena presentar la posicion
+
+    iscadena(cadena, subcadena) {
+        for (let c = 0; c <= cadena.length - subcadena.length; c++) {
+            let bandera = true;
+            for (let pos = 0; pos < subcadena.length; pos++) {
+                if (cadena[c + pos] !== subcadena[pos]) {
+                    bandera = false;
+                }
+            }
+            if (bandera) {
+                return c;
+            }
+        }
+        return -1; // subcadena no encontrada
+    }
+
+    encontrarsubcadena() {
+        let $input = document.getElementById("result")
+        let cadena = $input.value.toLowerCase()
+        let subcadena = prompt("Ingrese dato a buscar").toLowerCase()
+        if (cadena.trim() === "") {
+            $input.value = `No se podra buscar una subcadena porque no se ingreso una cadena`
+        } else {
+            if (subcadena === null) {
+                $input.value = `Se cancelo la operación, no se realiza ninguna acción`
+            }
+            let resultado = this.iscadena(cadena, subcadena)
+            if (resultado === -1) {
+                $input.value = (`La subcadena '${subcadena}' no se encontró en la cadena '${cadena}'.`);
+            } else {
+                $input.value = (`La subcadena '${subcadena}' se encontró en la posición ${resultado} de la cadena '${cadena}'.`);
+            }
         }
     }
 
