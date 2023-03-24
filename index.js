@@ -170,13 +170,13 @@ class Proyect {
     }
 
     darRomanos() {
-        let $input = document.getElementById("result")
-        let numero = parseInt($input.value)
-        if (numero > 100) {
-            $input.value = `Por favor ingresar un número menor a 100`
+        let $input = document.getElementById("result");
+        let numero = parseInt($input.value);
+        if (numero < 1 || numero > 100) {
+            $input.value = `Por favor ingresar un número entre 1 y 100`;
         } else {
-            let resul = this.sacarromanos(numero)
-            $input.value = `[La cantidad ingresada ${numero}] a romano es ==> ${resul}`
+            let resul = this.sacarromanos(numero);
+            $input.value = `[La cantidad ingresada ${numero}] a romano es ==> ${resul}`;
         }
     }
 
@@ -217,7 +217,7 @@ class Proyect {
     }
 
     // Ejercicio 11, Presnetar el elemnto mayor de un arreglo
-    
+
     obtenerNumero(arreglo, tipo) {
         let resultado = arreglo[0];
         for (let c = 1; c < arreglo.length; c++) {
@@ -236,7 +236,7 @@ class Proyect {
         let $input = document.getElementById("result")
         let num = $input.value
         if (!num.trim()) {
-            $input.value = `No se ingreso ningun arreglo`
+            $input.value = `No se ingreso ningún arreglo`
         } else {
             let arreglo = num.split(",")
             let mayor = this.obtenerNumero(arreglo, "mayor")
@@ -250,11 +250,39 @@ class Proyect {
         let $input = document.getElementById("result")
         let num = $input.value
         if (!num.trim()) {
-            $input.value = `No se ingreso ningun arreglo`
+            $input.value = `No se ingreso ningún arreglo`
         } else {
             let arreglo = num.split(",")
             let menor = this.obtenerNumero(arreglo, "menor")
             $input.value = (`De la siguiente serie '${arreglo}' el número menor es: ${menor}.`);
+        }
+    }
+
+    // Ejercicio 13, Presentar la posicion de un valor dentro de un arreglo 
+
+    buscadito(arreglo, buscado) {
+        let pos = 0, c = 0
+        while (c < arreglo.length && pos === 0) {
+            if (arreglo[c] === buscado) {
+                pos = c
+            }
+            c += + 1
+        }
+        return pos
+    }
+
+    buscar() {
+        let $input = document.getElementById("result")
+        let num = $input.value.trim()
+        let rege = /[^0-9,]/g;  // Busca cualquier carácter que no sea un número o una coma
+        num = num.replace(rege, '');   // Elimina calquier carácter que no sea un número o una coma
+        if (!num) {
+            $input.value = `No se ingreso ningún arreglo`
+        } else {
+            let arreglo = num.split(",")
+            let buscar = prompt("¿Qué numero deseas buscar?")
+            let resultado = this.buscadito(arreglo, buscar)
+            $input.value = (`De la siguiente serie '${arreglo}' el número ${buscar} se encuentran en la posición: ${resultado}.`);
         }
     }
 
