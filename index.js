@@ -290,6 +290,32 @@ class Proyect {
         }
     }
 
+    // Ejercio 14, Elimina un elento dentro de un arreglo 
+
+    eliminarelemento(arreglo, buscado) {
+        let elimi = this.buscadito(arreglo, buscado)
+        if (elimi !== -1) {
+            for (let c = elimi; c < arreglo.length - 1; c++) {
+                arreglo[c] = arreglo[c + 1];
+            }
+            arreglo.length = arreglo.length - 1;
+        }
+        return arreglo;
+    }
+
+    eliminar() {
+        let $input = document.getElementById("result")
+        let num = $input.value
+        if (!num.trim()) {
+            $input.value = `No se ingreso ningún arreglo`
+        } else {
+            let arreglo = num.split(",")
+            let buscar = prompt("¿Qué número deseas eliminar?")
+            let resultado = this.eliminarelemento(arreglo, buscar)
+            $input.value = (`Si a la serie le elimianos el número ${buscar} quedaria así: ${resultado}.`);
+        }
+    }
+
 }
 
 let Present = new Proyect()
