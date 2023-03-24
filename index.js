@@ -316,6 +316,34 @@ class Proyect {
         }
     }
 
+    // Ejercicio 15, Insertar un elmento dentro de un arreglo
+
+    agregarvalor(arreglo, numero) {
+        let c = 0, band = 0, nuevovalor = []
+        while (c < arreglo.length) {
+            if (band == 0 && numero < arreglo[c]) {
+                nuevovalor.push(numero);
+                band = 1
+            }
+            nuevovalor.push(arreglo[c])
+            c = c + 1
+        }
+        return nuevovalor;
+    }
+
+    ValorArreglo() {
+        let $input = document.getElementById("result")
+        let num = $input.value
+        if (!num.trim()) {
+            $input.value = `No se ingreso ningún arreglo`
+        } else {
+            let arreglo = num.split(",")
+            let numero = prompt("¿Qué número deseas agregar en el arreglo?")
+            let resultado = this.agregarvalor(arreglo, numero)
+            $input.value = (`Si a la serie le agregamos el número ${numero} quedaria así: ${resultado}.`);
+        }
+    }
+
 }
 
 let Present = new Proyect()
