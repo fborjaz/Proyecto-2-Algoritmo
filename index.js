@@ -234,8 +234,10 @@ class Proyect {
 
     numeromayor() {
         let $input = document.getElementById("result")
-        let num = $input.value
-        if (!num.trim()) {
+        let num = $input.value.trim()
+        let rege = /[^0-9,]/g;  // Busca cualquier carácter que no sea un número o una coma
+        num = num.replace(rege, '');   // Elimina calquier carácter que no sea un número o una coma
+        if (!num) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
             let arreglo = num.split(",")
@@ -248,8 +250,10 @@ class Proyect {
 
     numeromenor() {
         let $input = document.getElementById("result")
-        let num = $input.value
-        if (!num.trim()) {
+        let num = $input.value.trim()
+        let rege = /[^0-9,]/g;  // Busca cualquier carácter que no sea un número o una coma
+        num = num.replace(rege, '');   // Elimina calquier carácter que no sea un número o una coma
+        if (!num) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
             let arreglo = num.split(",")
