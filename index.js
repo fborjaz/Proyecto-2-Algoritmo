@@ -344,6 +344,34 @@ class Proyect {
         }
     }
 
+    // Ejercicio 16, se debe copiar una cadena en un arreglo dado un caracter
+
+    caracterarreglo(cadena, caracter) {
+        let agrega = "", arreglonuevo = []
+        for (let c = 0; c < cadena.length; c++) {
+            if (cadena[c] === caracter) {
+                arreglonuevo.push(parseInt(agrega));
+                agrega = "";
+            } else {
+                agrega += cadena[c]
+            }
+        }
+        arreglonuevo.push(parseInt(agrega));
+        return arreglonuevo;
+    }
+
+    cadenaArreglo() {
+        let $input = document.getElementById("result")
+        let cadena = $input.value
+        if (!cadena.trim()) {
+            $input.value = `No se ingreso ninguna cadena`
+        } else {
+        let caracter = prompt("Ingrese caracter")
+        let resultado = this.caracterarreglo(cadena, caracter)
+        $input.value = (`La caden ingresada es: ${cadena} y pasada a arreglo es: ${resultado}.`);
+        }
+    }
+
 }
 
 let Present = new Proyect()
