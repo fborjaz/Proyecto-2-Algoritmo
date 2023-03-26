@@ -1,28 +1,27 @@
 class Proyect {
 
     //propio split para obtener arreglo con separador 
-    PropioSplit(cadena, separador){
-        let partes = []; 
-        let inicio = 0; 
-       let parteActual = ""; 
-      
-       
+    PropioSplit(cadena, separador) {
+        let partes = [];
+        let inicio = 0;
+        let parteActual = "";
+
         for (let c = 0; c < cadena.length; c++) {
 
-          if (cadena[c] === separador) {
-            partes.push(parteActual);
-            parteActual = "";
-            inicio = c + 1; 
-          } else {
-            parteActual += cadena[c]; 
-          }
+            if (cadena[c] === separador) {
+                partes.push(parteActual);
+                parteActual = "";
+                inicio = c + 1;
+            } else {
+                parteActual += cadena[c];
+            }
         }
-      
-        
+
         partes.push(parteActual);
-      
-        return partes; 
-      }
+
+        return partes;
+    }
+
 
     // Ejercicio 1, Convertir de base 10 a 2
 
@@ -264,8 +263,8 @@ class Proyect {
         if (!num) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
-            let separador=","
-            let arreglo=this.PropioSplit(num,separador)
+            let separador = ","
+            let arreglo = this.PropioSplit(num, separador)
             let mayor = this.obtenerNumero(arreglo, "mayor")
             $input.value = (`De la siguiente serie '${arreglo}' el número mayor es: ${mayor}.`);
         }
@@ -281,8 +280,8 @@ class Proyect {
         if (!num) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
-            let separador=","
-            let arreglo=this.PropioSplit(num,separador)
+            let separador = ","
+            let arreglo = this.PropioSplit(num, separador)
             let menor = this.obtenerNumero(arreglo, "menor")
             $input.value = (`De la siguiente serie '${arreglo}' el número menor es: ${menor}.`);
         }
@@ -309,8 +308,8 @@ class Proyect {
         if (!num) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
-            let separador=","
-            let arreglo=this.PropioSplit(num,separador)
+            let separador = ","
+            let arreglo = this.PropioSplit(num, separador)
             let buscar = prompt("¿Qué numero deseas buscar?")
             let resultado = this.buscadito(arreglo, buscar)
             $input.value = (`De la siguiente serie '${arreglo}' el número ${buscar} se encuentran en la posición: ${resultado}.`);
@@ -336,8 +335,8 @@ class Proyect {
         if (!num.trim()) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
-            let separador=","
-            let arreglo=this.PropioSplit(num,separador)
+            let separador = ","
+            let arreglo = this.PropioSplit(num, separador)
             let buscar = prompt("¿Qué número deseas eliminar?")
             let resultado = this.eliminarelemento(arreglo, buscar)
             $input.value = (`Si a la serie le elimianos el número ${buscar} quedaria así: ${resultado}.`);
@@ -365,8 +364,8 @@ class Proyect {
         if (!num.trim()) {
             $input.value = `No se ingreso ningún arreglo`
         } else {
-            let separador=","
-            let arreglo=this.PropioSplit(num,separador)
+            let separador = ","
+            let arreglo = this.PropioSplit(num, separador)
             let numero = prompt("¿Qué número deseas agregar en el arreglo?")
             let resultado = this.agregarvalor(arreglo, numero)
             $input.value = (`Si a la serie le agregamos el número ${numero} quedaria así: ${resultado}.`);
@@ -376,18 +375,18 @@ class Proyect {
     // Ejercicio 16, se debe copiar una cadena en un arreglo dado un caracter
 
     caracterCadena(cadena, caracter) {
-        let agrega="", arreglonuevo=[]
-    for(let c=0; c<cadena.length; c++){
-        if(cadena[c]===caracter){
-            arreglonuevo.push(parseInt(agrega));
-            agrega="";
-        } else{
-        agrega+=cadena[c]
+        let agrega = "", arreglonuevo = []
+        for (let c = 0; c < cadena.length; c++) {
+            if (cadena[c] === caracter) {
+                arreglonuevo.push(parseInt(agrega));
+                agrega = "";
+            } else {
+                agrega += cadena[c]
+            }
         }
+        arreglonuevo.push(parseInt(agrega));
+        return arreglonuevo;
     }
-    arreglonuevo.push(parseInt(agrega));
-    return arreglonuevo;
-        }
 
     cadenaArreglo() {
         let $input = document.getElementById("result")
@@ -395,9 +394,9 @@ class Proyect {
         if (!cadena.trim()) {
             $input.value = `No se ingreso ninguna cadena`
         } else {
-        let caracter = prompt("Ingrese caracter")
-        let resultado = this.caracterCadena(cadena, caracter)
-        $input.value = (`La caden ingresada es: ${cadena} y pasada a arreglo es: ${resultado}.`);
+            let caracter = prompt("Ingrese caracter")
+            let resultado = this.caracterCadena(cadena, caracter)
+            $input.value = (`La caden ingresada es: ${cadena} y pasada a arreglo es: ${resultado}.`);
         }
     }
 
@@ -438,7 +437,7 @@ class Proyect {
 
             if (letra === ' ') {
                 mayuscula = true;
-                oracion += ' '; 
+                oracion += ' ';
             } else {
                 if (mayuscula) {
                     letra = letra.toUpperCase();
