@@ -1,14 +1,15 @@
 /* Estilos generales */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  @import url(https://fonts.googleapis.com/css?family=Exo:100);
-body{
-margin-top: 4px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+body {
+  margin-top: 4px;
   color: #0f0f10;
   font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
   text-align: center;
@@ -29,139 +30,146 @@ margin-top: 4px;
 }
 
 body::before {
-    font-size: 8rem;
-    font-weight: 100;
-    font-style: normal;
-  }
-
-div{
-    display:flex;
-    align-items:center;
-    flex-direction: column;
-    gap: 15px;
+  font-size: 8rem;
+  font-weight: 100;
+  font-style: normal;
 }
 
-h1{
-    color:tomato;
-    font-size:50px;
+div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h1 {
+  color: tomato;
+  font-size: 50px;
 }
 
 @-webkit-keyframes bg-scrolling-reverse {
-    100% {
-      background-position: 50px 50px;
-    }
+  100% {
+    background-position: 50px 50px;
   }
-  @-moz-keyframes bg-scrolling-reverse {
-    100% {
-      background-position: 50px 50px;
-    }
+}
+
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
   }
-  @-o-keyframes bg-scrolling-reverse {
-    100% {
-      background-position: 50px 50px;
-    }
+}
+
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
   }
-  @keyframes bg-scrolling-reverse {
-    100% {
-      background-position: 50px 50px;
-    }
+}
+
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
   }
-  @-webkit-keyframes bg-scrolling {
-    0% {
-      background-position: 50px 50px;
-    }
+}
+
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
   }
-  @-moz-keyframes bg-scrolling {
-    0% {
-      background-position: 50px 50px;
-    }
+}
+
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
   }
-  @-o-keyframes bg-scrolling {
-    0% {
-      background-position: 50px 50px;
-    }
+}
+
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
   }
-  @keyframes bg-scrolling {
-    0% {
-      background-position: 50px 50px;
-    }
+}
+
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
   }
-  
-  h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin: 1rem 0;
-  }
-  
-  table {
-    margin: 0 auto;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 600px;
-  }
-  
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+}
+
+td {
+  padding: 1rem;
+  border: 1px solid #080808;
+}
+
+button {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #1e88e5;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #1e88e5;
+  color: rgb(251, 250, 250);
+}
+
+.ac {
+  background-color: #c62828;
+}
+
+.ac:hover {
+  background-color: #8e0000;
+}
+
+/* Estilos específicos para dispositivos móviles */
+
+@media screen and (max-width: 600px) {
+
   td {
-    padding: 1rem;
-    border: 1px solid #080808;
+    font-size: 0.8rem;
+    padding: 0.75rem 0.5rem;
   }
-  
+
   button {
-    display: block;
-    margin: 0.5rem auto;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #1e88e5;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
-  
-  button:hover {
-    background-color: #0d47a1;
-  }
-  
+
   input {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #1e88e5;
-    color: rgb(251, 250, 250);
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
-  
-  .ac {
-    background-color: #c62828;
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
   }
-  
-  .ac:hover {
-    background-color: #8e0000;
-  }
-  
-  /* Estilos específicos para dispositivos móviles */
-  
-  @media screen and (max-width: 600px) {
-  
-    td {
-      font-size: 0.8rem;
-      padding: 0.75rem 0.5rem;
-    }
-  
-    button {
-      font-size: 0.8rem;
-      padding: 0.5rem;
-    }
-  
-    input {
-      font-size: 0.8rem;
-      padding: 0.5rem;
-    }
-  
-    h1 {
-      font-size: 1.5rem;
-      margin: 0.5rem 0;
-    }
-  
-  }
+
+}
