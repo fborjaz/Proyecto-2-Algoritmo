@@ -372,6 +372,36 @@ class Proyect {
         }
     }
 
+    // Ejercicio 17, Se convierte una cadena a tipo oracion
+
+    convertirCadena(cadena) {
+        let oracion = '';
+        let mayuscula = true;
+
+        for (let c = 0; c < cadena.length; c++) {
+            let letra = cadena.charAt(c);
+
+            if (letra === ' ') {
+                mayuscula = true;
+                oracion += ' '; 
+            } else {
+                if (mayuscula) {
+                    letra = letra.toUpperCase();
+                    mayuscula = false;
+                }
+                oracion += letra;
+            }
+        }
+        return oracion;
+    }
+
+    tipoOracion() {
+        let $input = document.getElementById("result")
+        let cadena = $input.value
+        let resultado = this.convertirCadena(cadena)
+        $input.value = (`La cadena es: ${cadena} y en oración es: ${resultado}`);
+    }
+
 }
 
 let Present = new Proyect()
