@@ -105,7 +105,7 @@ table {
   margin: 0 auto;
   border-collapse: collapse;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 td {
@@ -114,7 +114,7 @@ td {
 }
 
 button {
-  display: block;
+  display: flex;
   margin: 0.5rem auto;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -122,30 +122,34 @@ button {
   border-radius: 0.25rem;
   background-color: #1e88e5;
   color: #fff;
+  border: #080808 solid 1px;
+  border-radius: 0px 25px 0px 25px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: #0d47a1;
+  background-color: #135ac4;
 }
 
 input {
   width: 100%;
+  height: 70px;
   padding: 0.75rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.25rem;
+  font-size: 18px;
+  border: #000000 solid 1px ;
+  border-radius: 25px;
   background-color: #1e88e5;
   color: rgb(251, 250, 250);
 }
 
 .ac {
-  background-color: #c62828;
+  background-color: #ec3b3b;
+  border-radius: 150px;
 }
 
 .ac:hover {
-  background-color: #8e0000;
+  background-color: #c42f2f;
 }
 
 /* Estilos específicos para dispositivos móviles */
