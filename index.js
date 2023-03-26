@@ -402,6 +402,43 @@ class Proyect {
         $input.value = (`La cadena es: ${cadena} y en oración es: ${resultado}`);
     }
 
+    // Ejercicio 18, Se cuenta la cantidad de "," "." ";" ":" de una frase
+
+    contarCaracteres(frase) {
+        let Comas = 0;
+        let Puntos = 0;
+        let PuntoComa = 0;
+        let DosPuntos = 0;
+
+        for (let i = 0; i < frase.length; i++) {
+            if (frase[i] === ",") {
+                Comas++;
+            } else if (frase[i] === ".") {
+                Puntos++;
+            } else if (frase[i] === ";") {
+                PuntoComa++;
+            } else if (frase[i] === ":") {
+                DosPuntos++;
+            }
+        }
+        return { Comas, Puntos, PuntoComa, DosPuntos };
+    }
+
+    Caracteres() {
+        let $input = document.getElementById("result");
+        let frase = $input.value.trim();
+        if (frase === "") {
+            $input.value = "No se ingresó ninguna frase";
+        } else {
+            let caracteres = this.contarCaracteres(frase);
+            if (caracteres.Comas === 0 && caracteres.Puntos === 0 && caracteres.PuntoComa === 0 && caracteres.DosPuntos === 0) {
+                $input.value = "No se encontraron caracteres especiales";
+            } else {
+                $input.value = (`Hay ${caracteres.Comas} "," ${caracteres.Puntos} "." ${caracteres.PuntoComa} ";" ${caracteres.DosPuntos} ":"`);
+            }
+        }
+    }
+
 }
 
 let Present = new Proyect()
