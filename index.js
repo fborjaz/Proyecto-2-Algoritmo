@@ -541,21 +541,26 @@ class Proyect {
     }
 
     // Ejercicio 20, Dada una cadena sumar sus digitos
+sacarsuma(numero){
+    let suma=0
+    for (let i = 0; i < numero.length; i++) {
+        let digito = parseInt(numero[i]);
+        suma += digito;
+    }
+    return suma
+}
+
 
     SumaDigito() {
         let $input = document.getElementById("result");
         let numero = $input.value;
-        let suma = 0;
         if (!numero.trim() || (numero < 1 && numero !== "0")) {
             $input.value = `No se ingreso ninguna cadena`;
         } else if (isNaN(numero)) {
             $input.value = `Solo se debe ingresar una cadena de números`;
         } else {
-            for (let i = 0; i < numero.length; i++) {
-                let digito = parseInt(numero[i]);
-                suma += digito;
-            }
-            $input.value = `De la cadena ${numero} la suma de los digitos es: ${suma}`;
+           let resultado=this.sacarsuma(numero)
+            $input.value = `De la cadena ${numero} la suma de los digitos es: ${resultado}`;
         }
     }
 
