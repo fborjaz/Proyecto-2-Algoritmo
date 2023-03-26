@@ -372,7 +372,33 @@ class Proyect {
         }
     }
 
-    // Ejercicio 17, Se convierte una cadena a tipo oracion
+    // Ejercicio 17, se debe copiar un arreglo en una cadena dado un caracter
+
+    caracterarreglo(arreglo, caracter) {
+        let cadena = "";
+        for (let i = 0; i < arreglo.length; i++) {
+            cadena += arreglo[i];
+            if (i !== arreglo.length - 1) {
+                cadena += caracter;
+            }
+        }
+        return cadena;
+    }
+
+    arreglocadena() {
+        let input = document.getElementById("result");
+        let num = input.value.trim();
+        let arreglo = [num];
+        if (!num) {
+            input.value = "No se ha ingresado ninguna cadena.";
+        } else {
+            let caracter = prompt("Ingrese caracter");
+            let resultado = this.caracterarreglo(arreglo, caracter);
+            input.value = `El arreglo ingresado es: ${arreglo} y pasado a cadena es: ${resultado}.`;
+        }
+    }
+
+    // Ejercicio 18, Se convierte una cadena a tipo oracion
 
     convertirCadena(cadena) {
         let oracion = '';
@@ -402,7 +428,7 @@ class Proyect {
         $input.value = (`La cadena es: ${cadena} y en oración es: ${resultado}`);
     }
 
-    // Ejercicio 18, Se cuenta la cantidad de "," "." ";" ":" de una frase
+    // Ejercicio 19, Se cuenta la cantidad de "," "." ";" ":" de una frase
 
     contarCaracteres(frase) {
         let Comas = 0;
