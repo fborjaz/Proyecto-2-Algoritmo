@@ -96,39 +96,49 @@ class Proyect {
 
     base2_10() {
         let $input = document.getElementById("result")
-        let numero = parseInt($input.value)
-        if (numero == 0) {
-            $input.value = `Por favor ingresar mayor a 0`
-        } else {
-            let arreglo = this.isDigitos(numero, 10)
-            let base2 = 0, limite = arreglo.length - 1
-            for (let i = arreglo.length - 1; i >= 0; i--) {
-                base2 = base2 + arreglo[i] * this.isExponente(2, limite)
-                limite = limite - 1
+        let numero = $input.value.trim()
+        if (/^[01]+$/.test(numero)) {
+            numero = parseInt(numero, 2)
+            if (numero == 0) {
+                $input.value = `Por favor ingresar mayor a 0`
+            } else {
+                let arreglo = this.isDigitos(numero, 10)
+                let base2 = 0, limite = arreglo.length - 1
+                for (let i = arreglo.length - 1; i >= 0; i--) {
+                    base2 = base2 + arreglo[i] * this.isExponente(2, limite)
+                    limite = limite - 1
+                }
+                $input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 10 = ${base2}`
             }
-            $input.value = `[Base 2 = ${numero}] ==> Base 10 = ${base2}`
+        } else {
+            $input.value = `Por favor ingresar solo números en base 2`
         }
     }
 
     // Ejercicio 5, Convertir de base 2 a 16
 
     base2_16() {
-        let input = document.getElementById("result")
-        let numero = parseInt(input.value, 2)
-        if (isNaN(numero) || numero === 0) {
-            input.value = `Por favor ingresar un número mayor a 0 en base 2`
-        } else {
-            let arreglo = this.isDigitos(numero, 16)
-            let base16 = ""
-            while (arreglo.length > 0) {
-                let resto = arreglo.pop()
-                if (resto >= 10) {
-                    base16 = String.fromCharCode(resto + 55) + base16
-                } else {
-                    base16 = resto.toString() + base16
+        let $input = document.getElementById("result")
+        let numero = $input.value.trim()
+        if (/^[01]+$/.test(numero)) {
+            numero = parseInt(numero, 2)
+            if (numero == 0) {
+                $input.value = `Por favor ingresar un número mayor a 0`
+            } else {
+                let arreglo = this.isDigitos(numero, 16)
+                let base16 = ""
+                while (arreglo.length > 0) {
+                    let resto = arreglo.pop()
+                    if (resto >= 10) {
+                        base16 = String.fromCharCode(resto + 55) + base16
+                    } else {
+                        base16 = resto.toString() + base16
+                    }
                 }
+                $input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 16 = ${base16}`;
             }
-            input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 16 = ${base16}`;
+        } else {
+            $input.value = `Por favor ingresar solo números en base 2`
         }
     }
 
@@ -136,16 +146,21 @@ class Proyect {
 
     base2_8() {
         let $input = document.getElementById("result")
-        let numero = parseInt($input.value, 2)
-        if (isNaN(numero) || numero <= 0) {
-            $input.value = `Por favor ingresar mayor a 0`
+        let numero = $input.value.trim()
+        if (/^[01]+$/.test(numero)) {
+            numero = parseInt(numero, 2)
+            if (isNaN(numero) || numero <= 0) {
+                $input.value = `Por favor ingresar un número mayor a 0`
+            } else {
+                let arreglo = this.isDigitos(numero, 8)
+                let base8 = arreglo.reverse().join("")
+                $input.value = `[Base 2 = ${numero.toString(2)}] ==> Base 8 = ${base8}`
+            }
         } else {
-            let arreglo = this.isDigitos(numero, 8)
-            let base8 = arreglo.reverse().join("")
-            $input.value = `[Base 2 = ${numero}] ==> Base 8 = ${base8}`
+            $input.value = `Por favor ingresar solo números en base 2`
         }
     }
-
+    
     // Ejercicio 7, Convertir de base N a N
 
     convertirBase = (numero, base) => {
