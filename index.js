@@ -5,9 +5,7 @@ class Proyect {
         let partes = [];
         let inicio = 0;
         let parteActual = "";
-
         for (let c = 0; c < cadena.length; c++) {
-
             if (cadena[c] === separador) {
                 partes.push(parteActual);
                 parteActual = "";
@@ -16,12 +14,10 @@ class Proyect {
                 parteActual += cadena[c];
             }
         }
-
         partes.push(parteActual);
 
         return partes;
     }
-
 
     // Ejercicio 1, Convertir de base 10 a 2
 
@@ -152,7 +148,39 @@ class Proyect {
 
     // Ejercicio 7, Convertir de base N a N
 
+    convertirBase = (numero, base) => {
+        let digitos = [];
+        let valor = parseInt(numero, base); // convertir a base 10
+        while (valor > 0) {
+            let resto = valor % base;
+            if (resto >= 10) {
+                digitos.push(String.fromCharCode(65 + resto - 10));
+            } else {
+                digitos.push(resto);
+            }
+            valor = Math.floor(valor / base);
+        }
+        let resultado = "";
+        for (let i = digitos.length - 1; i >= 0; i--) {
+            resultado += digitos[i].toString();
+        }
+        return resultado;
+    }
 
+    baseN_N = () => {
+        let $input = document.getElementById("result");
+        let numero = $input.value;
+        let base = parseInt(prompt("¿En qué base está el número?"));
+        let baseDestino = parseInt(prompt("¿A qué base quiere convertir?"));
+        if (isNaN(base) || isNaN(baseDestino)) {
+            $input.value = `Ingrese una base válida (entre 2 y 36)`;
+        } else if (isNaN(parseInt(numero, base))) {
+            $input.value = `Ingrese un número válido para la base ${base}`;
+        } else {
+            let resultado = this.convertirBase(numero, baseDestino);
+            $input.value = `[Base ${base}] a Base ${baseDestino} ==> ${resultado}`;
+        }
+    }
 
     // Ejercicio 8, Dar el vuelto 
 
@@ -494,6 +522,25 @@ class Proyect {
             } else {
                 $input.value = (`Hay ${caracteres.Comas} "," ${caracteres.Puntos} "." ${caracteres.PuntoComa} ";" ${caracteres.DosPuntos} ":"`);
             }
+        }
+    }
+
+    // Ejercicio 20, Dada una cadena sumar sus digitos
+
+    SumaDigito() {
+        let $input = document.getElementById("result");
+        let numero = $input.value;
+        let suma = 0;
+        if (!numero.trim() || (numero < 1 && numero !== "0")) {
+            $input.value = `No se ingreso ninguna cadena`;
+        } else if (isNaN(numero)) {
+            $input.value = `Solo se debe ingresar una cadena de números`;
+        } else {
+            for (let i = 0; i < numero.length; i++) {
+                let digito = parseInt(numero[i]);
+                suma += digito;
+            }
+            $input.value = `De la cadena ${numero} la suma de los digitos es: ${suma}`;
         }
     }
 
